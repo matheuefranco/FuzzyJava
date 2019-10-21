@@ -48,8 +48,12 @@ RULEBLOCK No1
 
     RULE 1 : IF servico IS ruim 
                 THEN gorjeta IS ruim;
-    RULE 2 : IF servico IS bom and comida is normal 
+    RULE 2 : IF servico IS bom AND comida IS normal 
                 THEN gorjeta IS normal; 
+	RULE 3: IF comida IS deliciosa
+				THEN gorjeta IS generoza;
+	RULE 4: IF servico IS excelente 
+			    THEN gorjeta IS generoza;			
 				
 	
    

@@ -120,7 +120,16 @@ public class FuzzyJavaForm extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-     
+     FIS fuzzy = FIS.load("f.fcl",true);
+     if(fuzzy == null)
+            System.out.println("Arquivo nao encontrado");
+     JFuzzyChart.get().chart(fuzzy);
+     fuzzy.setVariable("servico", Double.parseDouble(txtServico.getValue().toString() ));
+     fuzzy.setVariable("comida", Double.parseDouble(txtComida.getValue().toString() ));
+     fuzzy.evaluate();
+     Variable res = fuzzy.getVariable("gorjeta");
+     lblsaida.setText(String.valueOf( res.getValue() ) );
+     JFuzzyChart.get().chart(res, res.getDefuzzifier(),true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
