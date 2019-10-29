@@ -22,7 +22,7 @@ END_FUZZIFY
 // Fuzzify input variable 'food'
 FUZZIFY comida
     TERM ruim := (0, 1) (1, 1) (5,0) ;
-	TERM normal := (4,0) (6,1) (8,0);
+	TERM normal := (3,0) (5,1) (6,1) (8,0);
     TERM deliciosa := (7,0) (9,1);
 END_FUZZIFY
 
@@ -53,7 +53,9 @@ RULEBLOCK No1
 	RULE 3: IF comida IS deliciosa
 				THEN gorjeta IS generoza;
 	RULE 4: IF servico IS excelente 
-			    THEN gorjeta IS generoza;			
+			    THEN gorjeta IS generoza;	
+    RULE 5 : IF servico IS ruim AND comida IS ruim
+                THEN gorjeta IS ruim;				
 				
 	
    
